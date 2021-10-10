@@ -1,23 +1,45 @@
-<link href="{{ 'boot.css' | asset_url }}" rel="stylesheet" media="print" onload="this.media='all'">
-
-<header>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a href="#home" class="navbar-brand">
+{% comment %} Sidebar Container {% endcomment %}
+<nav class="navbar navbar-light bg-light cst-navbar sidebar col-lg-2 col-md-3">
+    <div class="nav flex-column">
+        <div class="sidebar-container1">
+          <div class="sidebar-container2">
+            <header class="sidebar-logo">
+              <a href="{{ routes.root_url }}" class="navbar-brand">
                 <img src="{{ section.settings.logo | img_url: section.settings.logo_width }}"
                 class="d-inline-block align-text-top"
                 loading="lazy"
                 width="{{ section.settings.logo_width }}"
                 height="{{ section.settings.logo_height }}">
-                Store Logo
             </a>
-        </div>
-    </nav>
-</header>
+            </header>
+            <div class="sidebar-menu">
+              <div class="list-menu-container">
+                <ul class="list-menu">
+                  {%- for link in linklists.esme-menu.links -%}
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
 
+                {%- if shop.customer_accounts_enabled -%}
+                <div class="login-container">
+                  {{ 'Log in' | customer_login_link }}
+                </div>
+                {%- endif -%}
+              </div>
+            </div>
+            <footer class="sidebar-search">
+            </footer>
+          </div>
+        </div>
+    </div>
+</nav>
+
+{% comment %} "name": "t:sections.header.name", {% endcomment %}
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Sidebar",
   "settings": [
     {
       "type": "select",
