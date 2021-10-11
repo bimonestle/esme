@@ -1,8 +1,10 @@
 {% comment %} Sidebar Container {% endcomment %}
-<nav class="navbar navbar-light bg-light cst-navbar sidebar col-lg-2 col-md-3">
+<nav class="cst-navbar sidebar col-lg-2 col-md-3">
     <div class="nav flex-column">
         <div class="sidebar-container1">
           <div class="sidebar-container2">
+
+            {% comment %} Sidebar Logo {% endcomment %}
             <header class="sidebar-logo">
               <a href="{{ routes.root_url }}" class="navbar-brand">
                 <img src="{{ section.settings.logo | img_url: section.settings.logo_width }}"
@@ -12,6 +14,8 @@
                 height="{{ section.settings.logo_height }}">
             </a>
             </header>
+
+            {% comment %} Sidebar link menu {% endcomment %}
             <div class="sidebar-menu">
               <div class="list-menu-container">
                 <ul class="list-menu">
@@ -22,6 +26,7 @@
                   {%- endfor -%}
                 </ul>
 
+                {% comment %} If the customer account is enabled from the settings {% endcomment %}
                 {%- if shop.customer_accounts_enabled -%}
                 <div class="login-container">
                   {{ 'Log in' | customer_login_link }}
@@ -29,7 +34,26 @@
                 {%- endif -%}
               </div>
             </div>
+
+            {% comment %} Sidebar predictive search {% endcomment %}
             <footer class="sidebar-search">
+              <div>
+                <form action="/search" method="get" role="search">
+                  <label for="search">Search</label>
+                  <input id="search" type="search" name="q" value="{{ search.terms | escape }}"
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-owns="predictive-search-results-list"
+                    aria-control="predictive-search-results-list"
+                    aria-haspopup="listbox"
+                    aria-autocomplete="list"
+                    autocorrect="off"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="off"
+                  >
+                </form>
+              </div>
             </footer>
           </div>
         </div>
