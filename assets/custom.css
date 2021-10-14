@@ -9,5 +9,9 @@
 }
 
 .cst-navbar {
-    background-color: khaki;
+    background-color: #303030;
+}
+
+.navbar-brand img {
+    max-width: 100%;
 }
