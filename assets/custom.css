@@ -1,3 +1,12 @@
+/* ANNOUNCEMENT BAR */
+.announcement-bar {
+    background-color: lightblue;
+}
+/* END OF ANNOUNCEMENT BAR */
+
+
+
+/* SIDEBAR SIDENAV */
 .sidebar {
     position: fixed;
     top: 0;
@@ -15,3 +24,13 @@
 .navbar-brand img {
     max-width: 100%;
 }
+/* END OF SIDEBAR SIDENAV */
+
+
+
+/* IMAGE BANNER */
+.banner__media img {
+    width: 100%;
+    height: auto;
+}
+/* END IMAGE BANNER */
