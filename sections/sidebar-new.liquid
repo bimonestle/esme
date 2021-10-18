@@ -1,11 +1,14 @@
-{% comment %} Sidebar Container {% endcomment %}
+{% comment %} SIDEBAR CONTAINER {% endcomment %}
 <nav class="cst-navbar sidebar col-lg-2 col-md-3">
     <div class="nav flex-column">
         <div class="sidebar-container1">
           <div class="sidebar-container2">
 
-            {% comment %} Sidebar Logo {% endcomment %}
+            {% comment %} SIDEBAR LOGO {% endcomment %}
             <header class="sidebar-logo">
+              <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+
+              {% comment %} If there is a logo inserted, render the logo {% endcomment %}
               {%- if section.settings.logo != blank -%}
                 {%- assign image_size = section.settings.logo_width | append: 'x' -%}
                 <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
@@ -15,8 +18,15 @@
                       width="{{ section.settings.logo.width }}"
                       height="{{ section.settings.logo.height }}"
                       alt="{{ section.settings.logo.alt | default: shop.name | escape }}" >
+
+              {% comment %} If there is no logo, render the name of the shop {% endcomment %}
+              {% else %}
+              <h2 class="shop-name">{{ shop.name }}</h2>
               {%- endif -%}
+              
+              </a>
             </header>
+            {% comment %} END SIDEBAR LOGO {% endcomment %}
 
             {% comment %} Sidebar link menu {% endcomment %}
             <div class="sidebar-menu">
@@ -62,6 +72,7 @@
         </div>
     </div>
 </nav>
+{% comment %} END SIDEBAR CONTAINER {% endcomment %}
 
 {% comment %} "name": "t:sections.header.name", {% endcomment %}
 {% schema %}
