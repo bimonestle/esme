@@ -1,76 +1,76 @@
 {% comment %} SIDEBAR CONTAINER {% endcomment %}
 <nav class="cst-navbar sidebar col-lg-2 col-md-3">
-    <div class="nav flex-column">
-        <div class="sidebar-container1">
-          <div class="sidebar-container2">
+  <div class="sidebar-container1">
+    <div class="sidebar-container2">
 
-            {% comment %} SIDEBAR LOGO {% endcomment %}
-            <header class="sidebar-logo">
-              <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+      {% comment %} SIDEBAR LOGO {% endcomment %}
+      <header class="sidebar-logo">
+        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
 
-              {% comment %} If there is a logo inserted, render the logo {% endcomment %}
-              {%- if section.settings.logo != blank -%}
-                {%- assign image_size = section.settings.logo_width | append: 'x' -%}
-                <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                      src="{{ section.settings.logo | img_url: image_size }}"
-                      loading="lazy"
-                      class="header__heading-logo"
-                      width="{{ section.settings.logo.width }}"
-                      height="{{ section.settings.logo.height }}"
-                      alt="{{ section.settings.logo.alt | default: shop.name | escape }}" >
+        {% comment %} If there is a logo inserted, render the logo {% endcomment %}
+        {%- if section.settings.logo != blank -%}
+          {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+          <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                src="{{ section.settings.logo | img_url: image_size }}"
+                loading="lazy"
+                class="header__heading-logo"
+                width="{{ section.settings.logo.width }}"
+                height="{{ section.settings.logo.height }}"
+                alt="{{ section.settings.logo.alt | default: shop.name | escape }}" >
 
-              {% comment %} If there is no logo, render the name of the shop {% endcomment %}
-              {% else %}
-              <h2 class="shop-name">{{ shop.name }}</h2>
-              {%- endif -%}
-              
-              </a>
-            </header>
-            {% comment %} END SIDEBAR LOGO {% endcomment %}
+        {% comment %} If there is no logo, render the name of the shop {% endcomment %}
+        {% else %}
+        <h2 class="shop-name">{{ shop.name }}</h2>
+        {%- endif -%}
 
-            {% comment %} Sidebar link menu {% endcomment %}
-            <div class="sidebar-menu">
-              <div class="list-menu-container">
-                <ul class="list-menu">
-                  {%- for link in linklists.esme-menu.links -%}
-                    <li>
-                      <a href="{{ link.url }}">{{ link.title }}</a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
+        </a>
+      </header>
+      {% comment %} END SIDEBAR LOGO {% endcomment %}
 
-                {% comment %} If the customer account is enabled from the settings {% endcomment %}
-                {%- if shop.customer_accounts_enabled -%}
-                <div class="login-container">
-                  {{ 'Log in' | customer_login_link }}
-                </div>
-                {%- endif -%}
-              </div>
-            </div>
+      {% comment %} Sidebar link menu {% endcomment %}
+      <div class="sidebar-menu">
+        <div class="list-menu-container">
+          <ul class="list-menu nav flex-column">
+            {%- for link in linklists.esme-menu.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
 
-            {% comment %} Sidebar predictive search {% endcomment %}
-            <footer class="sidebar-search">
-              <div>
-                <form action="/search" method="get" role="search">
-                  <label for="search">Search</label>
-                  <input id="search" type="search" name="q" value="{{ search.terms | escape }}"
-                    role="combobox"
-                    aria-expanded="false"
-                    aria-owns="predictive-search-results-list"
-                    aria-control="predictive-search-results-list"
-                    aria-haspopup="listbox"
-                    aria-autocomplete="list"
-                    autocorrect="off"
-                    autocomplete="off"
-                    autocapitalize="off"
-                    spellcheck="off"
-                  >
-                </form>
-              </div>
-            </footer>
-          </div>
+          {% comment %} If the customer account is enabled from the settings {% endcomment %}
+          {%- if shop.customer_accounts_enabled -%}
+          <ul class="list-menu nav flex-column account-menu">
+            <li>
+              {{ 'Log in' | customer_login_link }}
+            </li>
+          </ul>
+          {%- endif -%}
         </div>
+      </div>
+
+      {% comment %} Sidebar predictive search {% endcomment %}
+      <footer class="sidebar-search">
+        <div>
+          <form action="/search" method="get" role="search">
+            <label for="search">Search</label>
+            <input id="search" type="search" name="q" value="{{ search.terms | escape }}"
+              role="combobox"
+              aria-expanded="false"
+              aria-owns="predictive-search-results-list"
+              aria-control="predictive-search-results-list"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="off"
+            >
+          </form>
+        </div>
+      </footer>
     </div>
+  </div>
 </nav>
 {% comment %} END SIDEBAR CONTAINER {% endcomment %}
 
