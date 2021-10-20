@@ -1,10 +1,10 @@
 {% comment %} SIDEBAR CONTAINER {% endcomment %}
 <nav class="cst-navbar sidebar col-lg-2 col-md-3">
-  <div class="sidebar-container1">
-    <div class="sidebar-container2">
+  <div class="sidebar-container1 d-flex flex-column">
+    <div class="sidebar-container2 flex-grow-1">
 
       {% comment %} SIDEBAR LOGO {% endcomment %}
-      <header class="sidebar-logo">
+      <header class="sidebar-logo py-4">
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
 
         {% comment %} If there is a logo inserted, render the logo {% endcomment %}
@@ -27,8 +27,38 @@
       </header>
       {% comment %} END SIDEBAR LOGO {% endcomment %}
 
+      {% comment %} SIDEBAR PREDICTIVE SEARCH {% endcomment %}
+      <div class="sidebar-search py-4">
+        <div>
+          <form action="/search" method="get" role="search" class="search-form">
+            <div class="predictive-container">
+              <input id="search"  class="input-predictive" type="search" name="q"
+                value="{{ search.terms | escape }}"
+                role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results-list"
+                aria-control="predictive-search-results-list"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="off"
+                placeholder="Search..."
+              >
+            </div>
+            {% comment %} <button type="submit" class="btn icon-fallback-text" aria-label="Submit">
+              <span class="icon icon-search" aria-hidden="true">
+                <i class="bi bi-search"></i>
+              </span>
+            </button> {% endcomment %}
+          </form>
+        </div>
+      </div>
+      {% comment %} ENDSIDEBAR PREDICTIVE SEARCH {% endcomment %}
+
       {% comment %} Sidebar link menu {% endcomment %}
-      <div class="sidebar-menu">
+      <div class="sidebar-menu py-4">
         <div class="list-menu-container">
           <ul class="list-menu nav flex-column">
             {%- for link in linklists.esme-menu.links -%}
@@ -48,27 +78,6 @@
           {%- endif -%}
         </div>
       </div>
-
-      {% comment %} Sidebar predictive search {% endcomment %}
-      <footer class="sidebar-search">
-        <div>
-          <form action="/search" method="get" role="search">
-            <label for="search">Search</label>
-            <input id="search" type="search" name="q" value="{{ search.terms | escape }}"
-              role="combobox"
-              aria-expanded="false"
-              aria-owns="predictive-search-results-list"
-              aria-control="predictive-search-results-list"
-              aria-haspopup="listbox"
-              aria-autocomplete="list"
-              autocorrect="off"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="off"
-            >
-          </form>
-        </div>
-      </footer>
     </div>
   </div>
 </nav>

@@ -6,6 +6,15 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --color-01: #f1ebda;
+  --color-02: #303030;
+  --color-03: #c8a374;
+  --color-04: #333333;
+  --color-05: #b3a16f;
+  --color-06: #c8a378cc;
+  --white: #ffffff;
+  --link-letter-spacing: 3px;
+
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
