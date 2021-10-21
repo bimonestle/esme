@@ -1,7 +1,7 @@
 {
   "sections": {
     "image_banner": {
-      "type": "image-banner",
+      "type": "image-banner-new",
       "settings": {
         "desktop_text_box_position": "flex-end"
       },

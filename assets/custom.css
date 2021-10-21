@@ -129,6 +129,12 @@ a {
 
 
 /* IMAGE BANNER */
+.banner__media {
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .banner__media img {
     width: 100%;
     height: auto;
