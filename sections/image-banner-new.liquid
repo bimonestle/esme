@@ -32,66 +32,19 @@
 <div id="Banner-{{ section.id }}" class="banner{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.adapt_height_first_image and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
 
   {% comment %} BANNER MEDIA PLACEHOLDER {% endcomment %}
-
-  {% comment %} If there is the first image, render the image {% endcomment %}
-  {%- if section.settings.image != blank -%}
-
-  {% comment %} If there is no both first image & second image, add placeholder class {% endcomment %}
-  {% comment %} If there is second image, add banner__media-half class {% endcomment %}
-  <div class="banner__media first media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}">
-    <img
-      srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
-        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
-        {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
-        {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
-        {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
-        {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
-        {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
-        {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}"
-      sizes="{% if section.settings.image_2 != blank and section.settings.stack_images_on_mobile %}(min-width: 750px) 50vw, 100vw{% elsif section.settings.image_2 != blank %}50vw{% else %}100vw{% endif %}"
-      src="{{ section.settings.image | img_url: '1500x' }}"
-      loading="lazy"
-      alt="{{ section.settings.image.alt | escape }}"
-      width="{{ section.settings.image.width }}"
-      height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
-      {% if section.settings.image_2 != blank %}class="banner__media-image-half"{% endif %}
-    >
-  </div>
-
-  {% comment %} If there is no second image, render the media placeholder {% endcomment %}
-  {%- elsif section.settings.image_2 == blank -%}
-  {% comment %} If there is no both first image & second image, add placeholder class {% endcomment %}
-  {% comment %} If there is second image, add banner__media-half class {% endcomment %}
-  <div class="banner__media dunno media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}">
-    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-  </div>
-  {%- endif -%}
-
-  {% comment %} If there is the second image, render the image {% endcomment %}
-  {%- if section.settings.image_2 != blank -%}
-  <div class="banner__media second media{% if section.settings.image != blank %} banner__media-half{% endif %}" style="background-image:url({{ section.settings.image_2 | img_url: '1500x' }})">
-    {% comment %} <img
-      srcset="{%- if section.settings.image_2.width >= 375 -%}{{ section.settings.image_2 | img_url: '375x' }} 375w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 750 -%}{{ section.settings.image_2 | img_url: '750x' }} 750w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 1100 -%}{{ section.settings.image_2 | img_url: '1100x' }} 1100w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 1500 -%}{{ section.settings.image_2 | img_url: '1500x' }} 1500w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 1780 -%}{{ section.settings.image_2 | img_url: '1780x' }} 1780w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 2000 -%}{{ section.settings.image_2 | img_url: '2000x' }} 2000w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 3000 -%}{{ section.settings.image_2 | img_url: '3000x' }} 3000w,{%- endif -%}
-        {%- if section.settings.image_2.width >= 3840 -%}{{ section.settings.image_2 | img_url: '3840x' }} 3840w,{%- endif -%}"
-      sizes="{% if section.settings.image != blank and section.settings.stack_images_on_mobile %}(min-width: 750px) 50vw, 100vw{% elsif section.settings.image != blank %}50vw{% else %}100vw{% endif %}"
-      src="{{ section.settings.image_2 | img_url: '1500x' }}"
-      loading="lazy"
-      alt="{{ section.settings.image_2.alt | escape }}"
-      width="{{ section.settings.image_2.width }}"
-      height="{{ section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio }}"
-      {% if section.settings.image != blank %}class="banner__media-image-half"{% endif %}
-    > {% endcomment %}
-  </div>
-  {%- endif -%}
-  
-  {% comment %} END BANNER MEDIA PLACEHOLDER {% endcomment %}
-
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% comment %} If there is the first image, render the image {% endcomment %}
+            <div class="carousel-item active">
+                <h1>transparent</h1>
+            </div>
+            <div class="carousel-item">
+                <h1>test</h1>
+            </div>
+            
+        </div>
+    </div>
+    {% comment %} END BANNER MEDIA PLACEHOLDER {% endcomment %}
 
   {% comment %} IMAGE BANNER TEXT {% endcomment %}
   <div class="banner__content banner__content--{{ section.settings.desktop_text_box_position }} page-width">

@@ -139,4 +139,16 @@ a {
     width: 100%;
     height: auto;
 }
+.banner__media-half.second {
+    width: 50%;
+}
+.banner .carousel {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
 /* END IMAGE BANNER */
