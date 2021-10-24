@@ -34,12 +34,14 @@
   {% comment %} BANNER MEDIA PLACEHOLDER {% endcomment %}
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            {% comment %} If there is the first image, render the image {% endcomment %}
+            {% comment %} If there is more than 1 image, create a slideshow {% endcomment %}
             <div class="carousel-item active">
-                <h1>transparent</h1>
+                <img src="https://source.unsplash.com/1200x720/?food"
+                loading="lazy">
             </div>
             <div class="carousel-item">
-                <h1>test</h1>
+                <img src="https://source.unsplash.com/1200x720/?restaurant"
+                  loading="lazy">
             </div>
             
         </div>
@@ -62,10 +64,15 @@
           {%- when 'buttons' -%}
             <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.button_label_1 != blank -%}
-                <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
+                <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>
+                  {{ block.settings.button_label_1 | escape }}
+                  {% render 'icon-arrow' %}
+                </a>
               {%- endif -%}
               {%- if block.settings.button_label_2 != blank -%}
-                <a{% if block.settings.button_link_2 != blank %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_2 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_2 | escape }}</a>
+                <a{% if block.settings.button_link_2 != blank %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_2 == blank %} aria-disabled="true"{% endif %}>
+                  {{ block.settings.button_label_2 | escape }}
+                </a>
               {%- endif -%}
             </div>
         {%- endcase -%}

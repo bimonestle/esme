@@ -1,4 +1,14 @@
 /* GLOBAL */
+:root {
+    --color-01: #f1ebda;
+    --color-02: #303030;
+    --color-03: #c8a374;
+    --color-04: #333333;
+    --color-05: #b3a16f;
+    --color-06: #c8a378cc;
+    --white: #ffffff;
+    --link-letter-spacing: 3px;
+}
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: var(--color-01);
@@ -150,5 +160,39 @@ a {
     align-items: center;
     justify-content: center;
     background-color: aliceblue;
+}
+.banner .carousel-inner {
+    height: inherit;
+}
+.banner__content .banner__heading {
+    font-size: 5rem;
+    color: var(--white);
+    font-weight: 600;
+}
+.banner__content .banner__text {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white);
+}
+.banner__content .banner__box .banner__buttons {
+    justify-content: space-between;
+}
+.banner__content .banner__buttons .button {
+    font-size: 3rem;
+    color: var(--white);
+    padding-bottom: 10px;
+    border-bottom: 4px solid var(--white);
+    display: flex;
+}
+.banner__content .banner__buttons .button:first-child {
+    flex-grow: 0 !important;
+}
+.banner__content .button:first-child svg {
+    width: 36px;
+    flex-grow: 1;
+    margin-left: 24px;
+}
+.banner__content .banner__buttons .button:not(:only-child) {
+    flex-grow: 0;
 }
 /* END IMAGE BANNER */
