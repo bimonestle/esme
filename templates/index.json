@@ -26,8 +26,8 @@
         "button"
       ]
     },
-    "rich_text": {
-      "type": "rich-text",
+    "business_desc": {
+      "type": "image-with-text-new",
       "blocks": {
         "heading": {
           "type": "heading"
@@ -97,7 +97,7 @@
   },
   "order": [
     "image_banner",
-    "rich_text",
+    "business_desc",
     "featured_products",
     "collage",
     "video",

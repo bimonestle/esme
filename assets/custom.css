@@ -16,6 +16,12 @@ body {
 a {
     text-decoration: none;
 }
+.body-text {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 40px;
+    color: var(--color-02);
+}
 /* END GLOBAL */
 
 /* ANNOUNCEMENT BAR */
