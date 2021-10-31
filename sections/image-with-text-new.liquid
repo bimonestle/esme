@@ -1,8 +1,8 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
-<div class="container-fluid section-business-desc">
+<div class="container-fluid section-business-desc py-5">
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-7 business-desc-image">
             <div class="slideshow-container">
                 <div class="slider">
                     <div class="">
@@ -11,9 +11,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5 d-flex align-items-center">
-            <div class="business-desc-container">
-                <p class="business-desc body-text">Whether you’re in the mood for a ‘small’ poutine or a ‘big’ salad, ‘just one’ beer or a double shot espresso, when it satisfies your tastebuds, it’s all good.</p>
+        <div class="col-sm-5 d-flex align-items-center business-desc-heading">
+            <div class="business-desc-heading-container">
+                <a href="#new-link" class="business-heading">
+                    <h2 class="business-desc-title">Your Business Desc Title</h2>
+                    <span class="business-desc-caption">Elaborate your business description here. For example what the LOB are and so on</span>
+                </a>
+                <div class="banner__buttons">
+                    <a href="#new-link" class="business-button button button--primary">Learn More {% render 'icon-arrow' %}</a>
+                </div>
             </div>
         </div>
         </div>

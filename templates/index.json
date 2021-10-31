@@ -45,8 +45,8 @@
         "button"
       ]
     },
-    "featured_products": {
-      "type": "featured-collection",
+    "featured_collection": {
+      "type": "featured-collection-new",
       "settings": {
         "title": "Featured products",
         "collection": "all",
@@ -98,7 +98,7 @@
   "order": [
     "image_banner",
     "business_desc",
-    "featured_products",
+    "featured_collection",
     "collage",
     "video",
     "multi_column"
