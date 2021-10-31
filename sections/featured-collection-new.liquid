@@ -20,37 +20,48 @@
     -%}
 
 <div class="collection page-width">
-    <div class="title-wraper-with-link">
-        <h2 class="title">{{ section.settings.title | escape }}</h2>
+  <div class="title-wraper-with-link">
+      <h2 class="title">{{ section.settings.title | escape }}</h2>
 
-        {%- if section.settings.view_all and section.settings.swipe_on_mobile and more_in_collection -%}
-        <a href="{{ section.settings.collection.url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
-        {%- endif -%}
-    </div>
+      {%- if section.settings.view_all and swipe_on_mobile and more_in_collection -%}
+      <a href="{{ section.settings.collection.url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
+      {%- endif -%}
+  </div>
 
-    <slider-component class="slider-mobile-gutter">
-        <ul class="grid grid--2-col product-grid" role="list">
-            {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-              <li class="grid__item {%- if all_products_count > 2 and swipe_on_mobile and products_to_show > 2 -%} slider__slide {%- endif -%}">
-                {%- render 'product-card',
-                    product_card_product: product,
-                    media_size: section.settings.image_ratio,
-                    show_secondary_image: section.settings.show_secondary_image
-                    add_image_padding: section.settings.add_image_padding
-                    show_vendor: section.settings.show_vendor
-                    show_image_outline: section.settings.show_image_outline
-                    show_rating: section.settings.show_rating
-                -%}
-              </li>
-            {%- else -%}
-              {%- for i in (1..4) -%}
-              <li class="grid__item">
-                {%- render 'product-card-placeholder' -%}
-              </li>
-              {%- endfor -%}
+  <slider-component class="slider-mobile-gutter">
+      <ul class="grid grid--2-col product-grid" role="list">
+          {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+            <li class="grid__item">
+              {%- render 'product-card',
+                  product_card_product: product,
+                  media_size: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image
+                  add_image_padding: section.settings.add_image_padding
+                  show_vendor: section.settings.show_vendor
+                  show_image_outline: section.settings.show_image_outline
+                  show_rating: section.settings.show_rating
+              -%}
+            </li>
+          {%- else -%}
+            {%- for i in (1..4) -%}
+            <li class="grid__item">
+              {%- render 'product-card-placeholder' -%}
+            </li>
             {%- endfor -%}
-        </ul>
-    </slider-component>
+          {%- endfor -%}
+      </ul>
+      {%- if all_products_count > 2 and swipe_on_mobile and products_to_show > 2 -%}
+        <div class="slider-buttons no-js-hidden">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="previous slide">{% render 'icon-caret' %}</button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="slider-counter--total">{{ all_products_count }}</span>
+          </div>
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="next slide">{% render 'icon-caret' %}</button>
+        </div>
+      {%- endif -%}
+  </slider-component>
 </div>
 
 {% schema %}
