@@ -9,28 +9,28 @@
 <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- liquid 
-    assign all_products_count = section.settings.collection.all_products_count
-    assign products_to_show = section.settings.products_to_show
-    assign swipe_on_mobile = section.settings.swipe_on_mobile
+  assign all_products_count = section.settings.featured_collections.all_products_count
+  assign products-to-show = section.settings.products-to-show
+  assign swipe_on_mobile = section.settings.swipe_on_mobile
 
-    if all_products_count > products_to_show
-        assign all_products_count = products_to_show
-        assign more_in_collection = true
-    endif
-    -%}
+  if all_products_count > products-to-show
+    assign all_products_count = products-to-show
+    assign more_in_collection = true
+  endif
+-%}
 
 <div class="collection page-width">
   <div class="title-wraper-with-link">
       <h2 class="title">{{ section.settings.title | escape }}</h2>
 
       {%- if section.settings.view_all and swipe_on_mobile and more_in_collection -%}
-      <a href="{{ section.settings.collection.url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
+      <a href="{{ section.settings.featured_collections.url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
       {%- endif -%}
   </div>
 
   <slider-component class="slider-mobile-gutter">
       <ul class="grid grid--2-col product-grid" role="list">
-          {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {%- for product in section.settings.featured_collections.products limit: section.settings.products-to-show -%}
             <li class="grid__item">
               {%- render 'product-card',
                   product_card_product: product,
@@ -50,7 +50,7 @@
             {%- endfor -%}
           {%- endfor -%}
       </ul>
-      {%- if all_products_count > 2 and swipe_on_mobile and products_to_show > 2 -%}
+      {%- if all_products_count > 2 and swipe_on_mobile and products-to-show > 2 -%}
         <div class="slider-buttons no-js-hidden">
           <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="previous slide">{% render 'icon-caret' %}</button>
           <div class="slider-counter caption">
@@ -62,100 +62,47 @@
         </div>
       {%- endif -%}
   </slider-component>
+
+  {%- if section.settings.show_view_all and more_in_collection -%}
+    <div class="center">
+      {% comment %} <a href="{{ section.settings.featured_collections.url }}" class="button">{{ 'sections.featured_collection.view_all' | t }}</a> {% endcomment %}
+      <a href="{{ section.settings.featured_collections.url }}" class="button">Show All Featured Collection</a>
+    </div>
+  {%- endif -%}
+  <p>{{ section.settings.featured-collection-title }}</p>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.featured-collection.name",
+  "name": "Featured Collection",
   "tag": "section",
   "class": "spaced-section",
   "settings": [
     {
       "type": "text",
-      "id": "title",
-      "default": "Featured collection",
-      "label": "t:sections.featured-collection.settings.title.label"
+      "id": "featured-collection-title",
+      "default": "This is Featured Collection Section",
+      "label": "Title for Featured Collection"
     },
     {
       "type": "collection",
-      "id": "collection",
-      "label": "t:sections.featured-collection.settings.collection.label"
+      "id": "featured_collections",
+      "label": "Pick Your Collection"
     },
     {
       "type": "range",
-      "id": "products_to_show",
+      "id": "products-to-show",
       "min": 2,
       "max": 12,
-      "step": 2,
+      "step": 1,
       "default": 4,
-      "label": "t:sections.featured-collection.settings.products_to_show.label"
+      "label": "Number of Products to Show"
     },
     {
       "type": "checkbox",
       "id": "show_view_all",
       "default": true,
-      "label": "t:sections.featured-collection.settings.show_view_all.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "swipe_on_mobile",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured-collection.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.featured-collection.settings.image_ratio.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_secondary_image",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "add_image_padding",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.add_image_padding.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image_outline",
-      "default": true,
-      "label": "t:sections.featured-collection.settings.show_image_outline.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.show_vendor.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.show_rating.label",
-      "info": "t:sections.featured-collection.settings.show_rating.info"
+      "label": "Show View All"
     }
   ],
   "presets": [
