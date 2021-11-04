@@ -28,6 +28,7 @@
       {%- endif -%}
   </div>
 
+  <p>{{ section.settings.featured-collection-title }}</p>
   <slider-component class="slider-mobile-gutter">
       <ul class="grid grid--2-col product-grid" role="list">
           {%- for product in section.settings.featured_collections.products limit: section.settings.products-to-show -%}
@@ -69,7 +70,6 @@
       <a href="{{ section.settings.featured_collections.url }}" class="button">Show All Featured Collection</a>
     </div>
   {%- endif -%}
-  <p>{{ section.settings.featured-collection-title }}</p>
 </div>
 
 {% schema %}
@@ -102,7 +102,17 @@
       "type": "checkbox",
       "id": "show_view_all",
       "default": true,
-      "label": "Show View All"
+      "label": "Show All Featured Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "Enable Swipe Mobile?"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection-new.settings.header.content"
     }
   ],
   "presets": [

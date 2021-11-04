@@ -554,6 +554,17 @@
         "name": "Featured collection"
       }
     },
+    "featured-collection-ne": {
+      "name": "Featured collection",
+      "settings": {
+        "header": {
+          "content": "Produk cart"
+        }
+      },
+      "presets": {
+        "name": "Featured collection"
+      }
+    },
     "featured-product": {
       "name": "Featured product",
       "blocks": {
