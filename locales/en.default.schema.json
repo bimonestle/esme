@@ -554,11 +554,11 @@
         "name": "Featured collection"
       }
     },
-    "featured-collection-ne": {
-      "name": "Featured collection",
+    "featured-collection-new": {
+      "name": "Featured Collection New",
       "settings": {
         "header": {
-          "content": "Produk cart"
+          "content": "Kartu Tentang Produk"
         }
       },
       "presets": {
