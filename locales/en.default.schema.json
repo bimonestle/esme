@@ -559,6 +559,18 @@
       "settings": {
         "header": {
           "content": "Kartu Tentang Produk"
+        },
+        "image_ratio": {
+          "label": "Ratio for Image",
+          "options__1": {
+            "label": "Adapt to image"
+          },
+          "options__2": {
+            "label": "Portrait"
+          },
+          "options__3": {
+            "label": "Square"
+          }
         }
       },
       "presets": {
