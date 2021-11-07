@@ -571,6 +571,9 @@
           "options__3": {
             "label": "Square"
           }
+        },
+        "show_secondary_image": {
+          "label": "Show Secondary Image on Hover"
         }
       },
       "presets": {
