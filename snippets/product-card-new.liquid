@@ -70,6 +70,14 @@
                 </h2>
             </div>
             {%- endif -%}
+
+            <div class="card_badge">
+                {%- if product_card_product.available == false -%}
+                    <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' }}</span>
+                {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
+                    <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.sale' }}</span>
+                {%- endif -%}
+            </div>
         </div>
     </div>
 </div>
