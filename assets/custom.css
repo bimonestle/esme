@@ -202,3 +202,9 @@ a {
     flex-grow: 0;
 }
 /* END IMAGE BANNER */
+
+/* PRODUCT CARD */
+.media.media--hover-effect > img + img {
+    opacity: 0;
+  }
+/* END PRODUCT CARD */

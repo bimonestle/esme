@@ -19,14 +19,19 @@
 <div class="card-wrapper">
     <div class="card-information">
         <div class="card-information__wrapper">
+
             {% comment %} if you want to show the vendor info {% endcomment %}
-            <span class="visually-hidden">{{ 'accessibility.vendor' }}<span>
-            <div class="caption-with-letter-spacing light">{{ product_card_product.vendor }}<div>
+            {%- if show_vendor -%}
+                <span class="visually-hidden">{{ 'accessibility.vendor' }}<span>
+                <div class="caption-with-letter-spacing light">{{ product_card_product.vendor }}<div>
+            {%- endif -%}
             
             {% comment %} If the featured media is true, then {% endcomment %}
-            <h3 class="card-information__text h5">
-                <a class="full-unstyled-link" href="{{ product_card_product.url | default: '#' }}">{{ product_card_product.title | escape }}</a>
-            </h3>
+            {%- if featured_media -%}
+                <h3 class="card-information__text h5">
+                    <a class="full-unstyled-link" href="{{ product_card_product.url | default: '#' }}">{{ product_card_product.title | escape }}</a>
+                </h3>
+            {%- endif -%}
             
             {% comment %} Metafield of product section {% endcomment %}
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
