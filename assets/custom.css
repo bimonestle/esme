@@ -8,7 +8,6 @@
     --color-06: #c8a378cc;
     --white: #ffffff;
     --link-letter-spacing: 3px;
-    --color-accent-1: {{ settings.colors_accent_1 }};
 }
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -29,11 +28,11 @@ a {
 /* .announcement-bar {
     background-color: var(--color-06);
 } */
-.announcement-bar .color-inverse {
+/* .announcement-bar.color-inverse {
     background-color: var(--color-accent-1);
-}
+} */
 .announcement-bar.color-accent-1 {
-    background-color: var(--color-accent-1);
+    background-color: var(--color-base-accent-1);
 }
 /* END OF ANNOUNCEMENT BAR */
 

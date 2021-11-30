@@ -8,11 +8,18 @@
                 {%- endif -%}
                     <p class="announcement-bar__message text-center">
                         {{ block.settings.text | escape }}
+                        {{ block.settings.color_scheme }}
                     </p>
             {%- endif -%}
         </div>
     {%- endcase -%}
 {%- endfor -%}
+
+<style>
+    .announcement-bar.color-accent-1 {
+        --color-background: var(--color-base-accent-1);
+    }
+</style>
 
 {% schema %}
 {
