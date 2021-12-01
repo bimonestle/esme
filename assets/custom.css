@@ -31,8 +31,23 @@ a {
 /* .announcement-bar.color-inverse {
     background-color: var(--color-accent-1);
 } */
+
 .announcement-bar.color-accent-1 {
-    background-color: var(--color-base-accent-1);
+    background-color: var(--color_accent_1);
+}
+.announcement-bar.color-accent-2 {
+    background-color: var(--color_accent_2);
+}
+.announcement-bar.color-background-1 {
+    background-color: var(--color_background_1);
+}
+.announcement-bar.color-background-2 {
+    background-color: var(--color_background_2);
+}
+.announcement-bar.color-inverse {
+    background-color: var(--color_background_1);
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 /* END OF ANNOUNCEMENT BAR */
 
