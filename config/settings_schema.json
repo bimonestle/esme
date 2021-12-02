@@ -8,6 +8,22 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Sidebar Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sidebar Background Color"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_background_color",
+        "default": "#303030",
+        "label": "Sidebar Background Color",
+        "info": "Used as background color for sidebar."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {

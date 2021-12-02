@@ -1,5 +1,5 @@
 {% comment %} SIDEBAR CONTAINER {% endcomment %}
-<nav class="cst-navbar sidebar col-lg-2 col-md-3">
+<nav class="cst-navbar sidebar col-md-2">
   <div class="sidebar-container1 d-flex flex-column">
     <div class="sidebar-container2 flex-grow-1">
 
@@ -18,8 +18,9 @@
                 height="{{ section.settings.logo.height }}"
                 alt="{{ section.settings.logo.alt | default: shop.name | escape }}" >
 
-        {% comment %} If there is no logo, render the name of the shop {% endcomment %}
+        {% comment %} otherwise, render the name of the shop {% endcomment %}
         {% else %}
+        {% comment %} 'shop' object (re: Liquid Shopify Cheat Sheet) {% endcomment %}
         <h2 class="shop-name">{{ shop.name }}</h2>
         {%- endif -%}
 
@@ -27,40 +28,11 @@
       </header>
       {% comment %} END SIDEBAR LOGO {% endcomment %}
 
-      {% comment %} SIDEBAR PREDICTIVE SEARCH {% endcomment %}
-      <div class="sidebar-search py-4">
-        <div>
-          <form action="/search" method="get" role="search" class="search-form">
-            <div class="predictive-container">
-              <input id="search"  class="input-predictive" type="search" name="q"
-                value="{{ search.terms | escape }}"
-                role="combobox"
-                aria-expanded="false"
-                aria-owns="predictive-search-results-list"
-                aria-control="predictive-search-results-list"
-                aria-haspopup="listbox"
-                aria-autocomplete="list"
-                autocorrect="off"
-                autocomplete="off"
-                autocapitalize="off"
-                spellcheck="off"
-                placeholder="Search..."
-              >
-            </div>
-            {% comment %} <button type="submit" class="btn icon-fallback-text" aria-label="Submit">
-              <span class="icon icon-search" aria-hidden="true">
-                <i class="bi bi-search"></i>
-              </span>
-            </button> {% endcomment %}
-          </form>
-        </div>
-      </div>
-      {% comment %} ENDSIDEBAR PREDICTIVE SEARCH {% endcomment %}
-
-      {% comment %} Sidebar link menu {% endcomment %}
+      {% comment %} SIDEBAR LINK MENU {% endcomment %}
       <div class="sidebar-menu py-4">
         <div class="list-menu-container">
           <ul class="list-menu nav flex-column">
+            {% comment %} 'linklists' is a global object {% endcomment %}
             {%- for link in linklists.esme-menu.links -%}
               <li>
                 <a href="{{ link.url }}">{{ link.title }}</a>
@@ -78,6 +50,7 @@
           {%- endif -%}
         </div>
       </div>
+      {% comment %} END SIDEBAR LINK MENU {% endcomment %}
     </div>
   </div>
 </nav>

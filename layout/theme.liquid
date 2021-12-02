@@ -63,6 +63,12 @@
         --color-base-accent-1: {{ settings.colors_accent_1.red }}, {{ settings.colors_accent_1.green }}, {{ settings.colors_accent_1.blue }};
         --color-base-accent-2: {{ settings.colors_accent_2.red }}, {{ settings.colors_accent_2.green }}, {{ settings.colors_accent_2.blue }};
         --payment-terms-background-color: {{ settings.colors_background_1 }};
+
+        {% comment %} Color for Sidebar {% endcomment %}
+        --bg-color-sidebar: {{ settings.sidebar_background_color }};
+
+        {% comment %} End Color for Sidebar {% endcomment %}
+        
         --color_accent_1: {{ settings.colors_accent_1 }};
         --color_accent_2: {{ settings.colors_accent_2 }};
         --color_background_1: {{ settings.colors_background_1 }};
@@ -138,7 +144,7 @@
 
     {% section 'announcement-bar-new' %}
     {% section 'sidebar-new' %}
-    <main id="MainContent" class="content-for-layout focus-none col-lg-10 ms-sm-auto" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none col-md-10 ms-sm-auto" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 

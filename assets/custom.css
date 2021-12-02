@@ -25,13 +25,6 @@ a {
 /* END GLOBAL */
 
 /* ANNOUNCEMENT BAR */
-/* .announcement-bar {
-    background-color: var(--color-06);
-} */
-/* .announcement-bar.color-inverse {
-    background-color: var(--color-accent-1);
-} */
-
 .announcement-bar.color-accent-1 {
     background-color: var(--color_accent_1);
 }
@@ -64,7 +57,7 @@ a {
 }
 
 .cst-navbar {
-    background-color: #303030;
+    background-color: var(--bg-color-sidebar);
 }
 
 .sidebar-logo {
