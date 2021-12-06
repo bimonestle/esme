@@ -7,6 +7,10 @@
     <div class="top">
         <a href="#home">
             <div class="logo">
+                <img src = "{{ section.settings.logo | img_url: 'image_size' }}"
+                loading = "lazy"
+                height = "{{  }}"
+                width = "{{  }}">
             </div>
         </a>
     </div>
@@ -35,8 +39,13 @@
             {
                 "type": "link_list",
                 "id": "sidebar_menu",
-                "default": "esme-menu",
+                "default": "main-menu",
                 "label": "Sidebar Menu"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Add Logo Image"
             }
         ]
     }
