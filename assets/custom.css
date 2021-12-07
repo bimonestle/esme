@@ -60,30 +60,7 @@ a {
     background-color: var(--bg-color-sidebar);
 }
 
-.sidebar-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.sidebar-logo > a {
-    text-decoration: none;
-    color: var(--color-01);
-}
-
-.sidebar-logo img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-}
-
-.sidebar-logo .shop-name {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 0;
-    text-align: center;
-    line-height: 3.2rem;
-}
 
 .sidebar-container1 {
     padding: 4rem 0;
