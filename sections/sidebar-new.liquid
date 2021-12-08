@@ -1,4 +1,4 @@
-<nav class="col-md-2">
+<nav class="fixed-top col-md-2">
   <div class="burger">
   </div>
   <div class="logo-mobile">
@@ -9,7 +9,7 @@
             <div class="logo">
                 {%- assign logo_width = section.settings.logo_width | append: 'x' -%}
                 <img src = "{{ section.settings.logo | img_url: logo_width }}"
-                class = "sidebar-logo"
+                class = "sidebar-logo img-fluid"
                 loading = "lazy"
                 width = "{{ section.settings.logo.width }}"
                 height = "{{ section.settings.logo.height }}"
